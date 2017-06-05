@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  //Servlet
+  <servlet>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>HomeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ItemsList</servlet-name>
+    <servlet-class>ItemsList</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>Item</servlet-name>
+      <servlet-class>Item</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShoppingCart</servlet-name>
+    <servlet-class>ShoppingCart</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckOut</servlet-name>
+    <servlet-class>CheckOut</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderDetails</servlet-name>
+    <servlet-class>OrderDetails</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PreviousItemsViewed</servlet-name>
+    <servlet-class>PreviousItemsViewed</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StoreOrderInDB</servlet-name>
+    <servlet-class>StoreOrderInDB</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>About</servlet-name>
+    <servlet-class>About</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Contact</servlet-name>
+    <servlet-class>Contact</servlet-class>
+  </servlet>
+
+  //Servlet Mapping
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ItemsList</servlet-name>
+    <url-pattern>/itemsList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>Item</servlet-name>
+      <url-pattern>/Item</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShoppingCart</servlet-name>
+    <url-pattern>/ShoppingCart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckOut</servlet-name>
+    <url-pattern>/CheckOut</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderDetails</servlet-name>
+    <url-pattern>/OrderDetails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PreviousItemsViewed</servlet-name>
+    <url-pattern>/PreviousItemsViewed</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StoreOrderInDB</servlet-name>
+    <url-pattern>/StoreOrderInDB</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>About</servlet-name>
+    <url-pattern>/About</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Contact</servlet-name>
+    <url-pattern>/Contact</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+

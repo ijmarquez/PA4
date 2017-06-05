@@ -1,0 +1,14 @@
+.footer-contents {
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+
+.footer-contents p {
+    background-color: cornflowerblue;
+}
+#footerContentsTitle {
+    font-family: 'Helvetica Neue', Sans-serif;
+    font-size: 20px;
+}
+
+

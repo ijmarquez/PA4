@@ -1,0 +1,146 @@
+/*Title and image */
+.itemName h2 {
+    margin-top: 3px;
+    font-size: 50px;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+
+.productContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    length: 300px;
+    padding-bottom: 20px;
+}
+
+#productContainerImg {
+    width: 250px;
+    length: 300px;
+}
+
+/*change view section*/
+.items {
+    display: inline-block;
+    margin: 5px;
+
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.items:hover {
+    background-color: transparent;
+    border-color: bisque;
+    text-decoration: none;
+    position: relative;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    z-index: 1000;
+}
+
+.boxList {
+    display: block;
+    list-style: none;
+
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+.boxList li {
+    float: left;
+    display: block;
+    margin: 0 12px 0 0;
+}
+
+.sizeSelection{
+    border: 1px solid;
+    padding: 2px;
+    background-color: #b0e5f4;
+}
+
+.itemImg {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    padding: 2px;
+}
+.li.itemList{
+    display: list-item;
+}
+
+.itemCategories li {
+    display: inline-block;
+}
+
+.descriptionContainer {
+    text-align: left;
+    border-top: 1px solid black;
+}
+
+#btnContainer {
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+#cost {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#btn {
+    background-color: #18a300;
+    width: 100px;
+    height: 50px;
+    color: floralwhite;
+}
+.productList {
+    border-right: 1px solid black;
+}
+
+.itemCategories {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/*description section*/
+.descriptionContainer {
+    text-align: left;
+    padding-left: 2%;
+    text-indent: 20px;
+    font-family: 'Helvetica Neue', Sans-serif;
+
+}
+
+.descriptionContainer h3 {
+    font-family: 'Helvetica Neue', Sans-serif;
+    font-size: 20px;
+}
+
+.shoppingCartTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.shoppingCartTable td {
+    width: 1%;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+.home-contents {
+     margin-left: 100px;
+     margin-right: 100px;
+     padding-bottom: 50px;
+     text-align: center;
+ }
+
+#home-hook {
+    color: black;
+    font-size: 60px;
+}
+
+.home-container {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: scroll;
+}
+
+#userHomeItemList {
+    font-family: 'Helvetica Neue', Sans-serif;
+    font-size: 50px;
+}
+
+#userHomeItemList:visited {
+    color: darkred;
+}
