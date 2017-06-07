@@ -44,7 +44,14 @@ public class Todo {
     private String itemName;    // unique id
     private String location;
     private String displayName;
+    private String generalName;
+    private String cost;
 
+    public void setGeneralName(String generalName) { this.generalName = generalName; }
+    public String getGeneralName() { return  generalName; }
+
+    public void setCost(String cost) { this.cost = cost; }
+    public String getCost() { return  cost; }
 
     public void setProductID(String productID) {
         this.productID = productID;
@@ -53,7 +60,6 @@ public class Todo {
         return productID;
     }
 
-
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
@@ -61,14 +67,12 @@ public class Todo {
         return itemName;
     }
 
-
     public void setLocation(String location) {
         this.location = location;
     }
     public String getLocation() {
         return location;
     }
-
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;

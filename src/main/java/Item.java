@@ -1,7 +1,16 @@
+import model.Todo;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+import org.glassfish.jersey.client.ClientConfig;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -13,14 +22,6 @@ import java.util.List;
  */
 public class Item extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //connect to the DB information
-        final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        final String DB_URL = Constants.getDatabaseName();
-        final String DB_USER = Constants.getUsername();
-        final String DB_PASS = Constants.getPassword();
-        Connection conn = null;
-        Statement stmt = null;
-
         response.setContentType("text/html; charset=UTF-8");
         char temp [] = request.getParameter("product").toCharArray();
         char copy [] = new char[temp.length-2];
@@ -40,27 +41,35 @@ public class Item extends HttpServlet {
         out.println("<div class=\"itemName\">");
         //insert selected item image and name
 
-        try {
-            Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+        //Setup to call Jersey API
+        ClientConfig config = new ClientConfig();
+        Client client = ClientBuilder.newClient(config);
+        WebTarget target = client.target(Constants.getBaseURI());
+        String jsonResponse =
+                target.path("v1").path("api").path("todos").path(generalName).
+                        request(). //send a request
+                        accept(MediaType.APPLICATION_JSON). //specify the media type of the response
+                        get(String.class); // use the get method and return the response as a string
 
-            stmt = conn.createStatement();
-            String sql = "SELECT `Display Name` FROM  `MainProduct` ,  `Product` WHERE MainProduct.generalName =  \""+ generalName +"\" && Product.Location =  \""+productLocation+"\"";
-//            String sql = "SELECT `Display Name` FROM  MainProduct , Product WHERE MainProduct.generalName = \""+generalName+"\" && Product.Location = \"" + productLocation +"\"";
-            ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()) {
-                itemName = rs.getString("Display Name");
+        System.out.println(jsonResponse);
+        ObjectMapper objectMapper = new ObjectMapper(); // This object is from the jackson library
+        out.println("<p> THIS IS THE API CALL TO "+generalName+ "</p>");
+        //call the GET in API
+        List<Todo> todoList = objectMapper.readValue(jsonResponse, new TypeReference<List<Todo>>(){});
+        //set values
+
+        for(Todo todo : todoList) {
+            if(todo.getLocation().equalsIgnoreCase(productLocation))
+            {
+                //get and display name
                 out.println("<h2>");
-                out.println(itemName);
+                out.println(todo.getItemName());
                 out.println("</h2>");
+                //end display name
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            out.println(e);
-        } catch (SQLException e) {
-            out.println(e);
         }
 
+//        String sql = "  \""+ generalName +"\" && Product.Location =  \""+productLocation+"\"";
         out.println("<div class=\"productContainer\"><img id=\"productContainerImg\" src=\"");
         out.println(productLocation + "\">");
         out.println("</div>");
@@ -73,24 +82,23 @@ public class Item extends HttpServlet {
         out.println("<div class=\"list\">");
         out.println("<ul class=\"boxList\">");
 
-        try {
-            stmt = conn.createStatement();
-            String sql = "SELECT  `Location`,  `Display Name`, `description`, `generalName` FROM  `Product`, `MainProduct`\n" +
-                    "WHERE MainProduct.generalName = \""+generalName+"\" && MainProduct.ID = Product.ID";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                String DisplayName = rs.getString("Display Name");
-                gName = rs.getString("generalName");
-                String imageLocation = rs.getString("Location");
 
-                out.println("<li class='itemList'>");
-                out.println("<a href=\"Item?product='"+gName+"'&amp;image='"+imageLocation+"'\">");
-                out.println("<img class=\"itemImg\" src= \""+ imageLocation +"\" alt= \""+ generalName+"\">");
-                out.println("</a></li>");
-            }
-        }catch (SQLException e) {
-            out.println(e);
-        }
+        //display item information
+//        String sql = "SELECT  `Location`,  `Display Name`, `description`, `generalName` FROM  `Product`, `MainProduct`\n" +
+//                "WHERE MainProduct.generalName = \""+generalName+"\" && MainProduct.ID = Product.ID";
+        //set values
+
+//        String DisplayName = todo.getDisplayName();
+//        gName = todo.getGeneralName();
+//        String imageLocation = todo.getLocation();
+//
+//        out.println("<li class='itemList'>");
+//        out.println("<a href=\"Item?product='"+gName+"'&amp;image='"+imageLocation+"'\">");
+//        out.println("<img class=\"itemImg\" src= \""+ imageLocation +"\" alt= \""+ generalName+"\">");
+//        out.println("</a></li>");
+
+        //end display item information
+
 
         out.println("</ul>");
         out.println("</div>");
@@ -128,22 +136,22 @@ public class Item extends HttpServlet {
 
         out.println("<div id=\"btnContainer\">");
         //get item price
-        try {
-            stmt = conn.createStatement();
-            String sql = "SELECT `cost` FROM `MainProduct` , `Product`\n" +
-                    "WHERE Product.`Display Name` =  \"" +itemName+"\" && Product.productID = MainProduct.product";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-
-                String showCost = rs.getString("cost");
-
-                out.println("<p id='cost'> $");
-                out.println(showCost);
-                out.println("</p>");
-            }
-        }catch (SQLException e) {
-            out.println(e);
-        }
+//        try {
+//            stmt = conn.createStatement();
+//            String sql = "SELECT `cost` FROM `MainProduct` , `Product`\n" +
+//                    "WHERE Product.`Display Name` =  \"" +itemName+"\" && Product.productID = MainProduct.product";
+//            ResultSet rs = stmt.executeQuery(sql);
+//            while (rs.next()) {
+//
+//                String showCost = rs.getString("cost");
+//
+//                out.println("<p id='cost'> $");
+//                out.println(showCost);
+//                out.println("</p>");
+//            }
+//        }catch (SQLException e) {
+//            out.println(e);
+//        }
         out.print("<form action='ShoppingCart' method='post'>");
         out.println("Quantity: <input id='quantity' type='text' name=\"quantity\" size='3' value=1> <br><br>"); //onkeyup="updateTotal()"
         out.println("<input id = 'item' type='text' name='itemName' value=\""+itemName+"\" hidden>");
@@ -167,41 +175,41 @@ public class Item extends HttpServlet {
         out.println("<h3 id=\"descriptionHeader\"> Description</h3>");
 
         //get description for the server and put it here
-        try {
-            stmt = conn.createStatement();
-            String sql = "SELECT  `description` FROM  `MainProduct` ,  `Product`\n" +
-                    "WHERE Product.`Display Name` =  \""+itemName +"\" && Product.productID = MainProduct.product";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                String showDescription = rs.getString("description");
-                out.println("<p>");
-                out.println(showDescription);
-                out.println("</p>");
-            }
-        }catch (SQLException e) {
-            out.println(e);
-        }
-
-        finally
-        {
-            try
-            {
-                if (stmt != null)
-                    stmt.close();
-            }
-            catch (SQLException se2)
-            {
-                try
-                {
-                    if (conn != null)
-                        conn.close();
-                }
-                catch (SQLException se)
-                {
-                    se.printStackTrace();
-                }
-            }
-        }
+//        try {
+//            stmt = conn.createStatement();
+//            String sql = "SELECT  `description` FROM  `MainProduct` ,  `Product`\n" +
+//                    "WHERE Product.`Display Name` =  \""+itemName +"\" && Product.productID = MainProduct.product";
+//            ResultSet rs = stmt.executeQuery(sql);
+//            while (rs.next()) {
+//                String showDescription = rs.getString("description");
+//                out.println("<p>");
+//                out.println(showDescription);
+//                out.println("</p>");
+//            }
+//        }catch (SQLException e) {
+//            out.println(e);
+//        }
+//
+//        finally
+//        {
+//            try
+//            {
+//                if (stmt != null)
+//                    stmt.close();
+//            }
+//            catch (SQLException se2)
+//            {
+//                try
+//                {
+//                    if (conn != null)
+//                        conn.close();
+//                }
+//                catch (SQLException se)
+//                {
+//                    se.printStackTrace();
+//                }
+//            }
+//        }
         out.println("</div>");
 
         //footer

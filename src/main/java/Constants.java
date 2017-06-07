@@ -1,4 +1,6 @@
+import javax.ws.rs.core.UriBuilder;
 import java.io.PrintWriter;
+import java.net.URI;
 
 /**
  * Created by Calvin on 5/24/2017.
@@ -40,6 +42,7 @@ public class Constants {
         out.println("<ul class=\"navBar\">");
         out.println("<li> <a class=\"userOption\" href=\"home\"> Welcome </a> </li>");
         out.println("<li> <a class=\"userOption\" href=\"itemsList.jsp\"> Home </a> </li>");
+        out.println("<li> <a class=\"userOption\" href=\"itemsList\"> Home(SERVLET) </a> </li>"); //DELETE LATER, TESTING PURPOSE
         out.println("<li> <a class=\"userOption\" href=\"ShoppingCart\"> Shopping Cart </a> </li>");
         out.println("</ul>");
         out.println("</div>");
@@ -67,6 +70,11 @@ public class Constants {
     }
 
     public static String getPassword() { return "GSaxgpMPZKhN"; }
+
+    public static URI getBaseURI() {
+        //Change the URL here to make the client point to your service.
+        return UriBuilder.fromUri("http://andromeda-74.ics.uci.edu:23456/jerseyrest").build();
+    }
 }
 
 
