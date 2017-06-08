@@ -1,5 +1,5 @@
 import model.ItemList;
-import model.Todo;
+import model.ItemModel;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.glassfish.jersey.client.ClientConfig;
@@ -14,7 +14,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 

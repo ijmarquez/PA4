@@ -16,7 +16,7 @@ public class HomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         // create a viewedList and add to session
-        //List<ItemModel> viewedList = new ArrayList<ItemModel>();
+        //List<model.ItemModel> viewedList = new ArrayList<model.ItemModel>();
         //session = request.getSession();
         //session.setAttribute("viewedList", viewedList);
 

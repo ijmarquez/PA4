@@ -42,7 +42,7 @@ public class Constants {
         out.println("<ul class=\"navBar\">");
         out.println("<li> <a class=\"userOption\" href=\"home\"> Welcome </a> </li>");
         out.println("<li> <a class=\"userOption\" href=\"itemsList.jsp\"> Home </a> </li>");
-        out.println("<li> <a class=\"userOption\" href=\"itemsList\"> Home(SERVLET) </a> </li>"); //DELETE LATER, TESTING PURPOSE
+//        out.println("<li> <a class=\"userOption\" href=\"itemsList\"> Home(SERVLET) </a> </li>"); //DELETE LATER, TESTING PURPOSE
         out.println("<li> <a class=\"userOption\" href=\"ShoppingCart\"> Shopping Cart </a> </li>");
         out.println("</ul>");
         out.println("</div>");

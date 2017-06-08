@@ -1,13 +1,12 @@
-import javax.servlet.RequestDispatcher;
+import model.ItemModel;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * Created by irishmarquez on 5/26/17.

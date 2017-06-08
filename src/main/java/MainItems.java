@@ -1,10 +1,10 @@
 import model.MainList;
-import model.Todo;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 import org.glassfish.jersey.client.ClientConfig;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,35 +12,18 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URI;
 import java.util.List;
-import java.sql.*;
-
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
-import org.glassfish.jersey.client.ClientConfig;
-
 
 /**
- * Created by walki on 5/24/2017.
+ * Created by Calvin on 6/7/2017.
  */
-@WebServlet("/ItemsList")
-public class ItemsList extends HttpServlet {
+public class MainItems extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException
     {
         PrintWriter out = response.getWriter();
-
-        //header
-        Constants.header(out);
-
-        //this is where it'll show the list of different items
-        out.println("<div class=\"items-container\">");
-        out.println("<div class=\"items-contents\">");
-        out.println("<table class=\"itemListTable\">");
 
         //Setup to call Jersey API
         ClientConfig config = new ClientConfig();
@@ -86,7 +69,7 @@ public class ItemsList extends HttpServlet {
             out.println("</p></div>");
 
             //display item prices
-            out.println("<div class='items-price'><p>");
+            out.println("<div class='items-price'><p>$");
             out.println(cost);
             out.println("</p></div>");
 

@@ -45,6 +45,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet-name>Contact</servlet-name>
     <servlet-class>Contact</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>MainItems</servlet-name>
+    <servlet-class>MainItems</servlet-class>
+  </servlet>
 
   //Servlet Mapping
   <servlet-mapping>
@@ -86,6 +90,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <servlet-mapping>
     <servlet-name>Contact</servlet-name>
     <url-pattern>/Contact</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MainItems</servlet-name>
+    <url-pattern>/MainItems</url-pattern>
   </servlet-mapping>
 
 </web-app>
