@@ -1,3 +1,4 @@
+import model.MainList;
 import model.Todo;
 import org.glassfish.jersey.client.ClientConfig;
 
@@ -55,11 +56,11 @@ public class ItemsList extends HttpServlet {
         ObjectMapper objectMapper = new ObjectMapper(); // This object is from the jackson library
 
         //call the GET in API
-        List<Todo> todoList = objectMapper.readValue(jsonResponse, new TypeReference<List<Todo>>(){});
+        List<MainList> todoList = objectMapper.readValue(jsonResponse, new TypeReference<List<MainList>>(){});
 
         //insert each item in a loop here
         int i = 1;
-        for(Todo todo : todoList)
+        for(MainList todo : todoList)
         {
             if ( i == 1) {
                 out.println("<tr>");
