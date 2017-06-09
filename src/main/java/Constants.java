@@ -75,6 +75,8 @@ public class Constants {
         //Change the URL here to make the client point to your service.
         return UriBuilder.fromUri("http://andromeda-74.ics.uci.edu:23456/jerseyrest").build();
     }
+
+    public static String getPOSTURL() { return "http://andromeda-74.ics.uci.edu:23456/jerseyrest/v1/api/todos";}
 }
 
 

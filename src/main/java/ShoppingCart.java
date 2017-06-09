@@ -78,7 +78,7 @@ public class ShoppingCart extends HttpServlet {
         out.println("<p>Total: $ <input input id=\"totalCost\" name=\"total\" value=\""+moneyFormat.format(totalCost)+"\" class=\"inputReadOnly\" readonly> </input></p>");
         out.println("</div>");
         out.println("<div id=\"submitOrder\">");
-        out.println("<input id='btn' type='submit' value='Checkout' onclick=\"location.href='CheckOut'\">");
+        out.println("<input id='btn' type='submit' value='Checkout' onclick=\"location.href='CheckOut.jsp'\">");
         out.println("</div>");
         out.println("</div>");
 
