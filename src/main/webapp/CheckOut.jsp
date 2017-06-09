@@ -41,7 +41,6 @@
             <ul class="navBar">
                 <li> <a class="userOption" href="home"> Welcome </a> </li>
                 <li> <a class="userOption" href="itemsList.jsp"> Home </a> </li>
-                <li> <a class="userOption" href="ShoppingCart"> Shopping Cart </a> </li>
             </ul>
         </div>
     </div>

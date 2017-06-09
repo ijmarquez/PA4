@@ -1,3 +1,5 @@
+package model;
+
 import java.util.HashMap;
 
 /**
@@ -16,6 +18,13 @@ public class Cart {
         this.name = name;
         this.qty = quantity;
         this.size = size;
+    }
+    public Cart(String name, Integer quantity, String size, int cost) {
+//        cart.put(name, quantity);
+        this.name = name;
+        this.qty = quantity;
+        this.size = size;
+        setTotalCost(cost*quantity);
     }
 
 //    public HashMap getCart() { return cart; }

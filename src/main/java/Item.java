@@ -87,7 +87,6 @@ public class Item extends HttpServlet {
         out.println("<div class=\"list\">");
         out.println("<ul class=\"boxList\">");
 
-
         //display item information
         for(ItemList todo : todoList) {
             out.println("<li class='itemList'>");
@@ -96,8 +95,6 @@ public class Item extends HttpServlet {
             out.println("</a></li>");
         }
         //end display item information
-
-
         out.println("</ul>");
         out.println("</div>");
         out.println("</li>");
@@ -140,7 +137,7 @@ public class Item extends HttpServlet {
         out.println("<input id = 'item' type='text' name='itemName' value=\""+itemName+"\" hidden>");
 
         //submit button
-        out.println("<input id=\"btn\" type=\"button\" value=\"Add to cart\" name=\"addButton\"onclick=\"addToCart('"+productLocation+"', '"+itemName+"')\"/>");
+        out.println("<input id=\"btn\" type=\"button\" value=\"Check out\" name=\"addButton\"onclick=\"addToCart('"+productLocation+"', '"+itemName+"')\"/>");
         out.println("</form>");
 
 

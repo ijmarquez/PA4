@@ -50,7 +50,7 @@ function addToCart(img, shirt) {
         // localStorage.setItem('size', idPicked.title);
         // localStorage.setItem('img', img);
         // localStorage.setItem('cost', "10");
-        window.location.assign("ShoppingCart");
-        window.location.href = "ShoppingCart?item="+shirt+"&quantity="+ qty+"&size="+size;
+        window.location.assign("CheckOut.jsp");
+        window.location.href = "CheckOut.jsp?item="+shirt+"&quantity="+ qty+"&size="+size;
     }
 }

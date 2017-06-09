@@ -9,7 +9,6 @@
 <%@ page import="javax.ws.rs.client.WebTarget" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="javax.ws.rs.core.UriBuilder" %>
-<%@ page import="model.Todo" %>
 <%@ page import="javax.ws.rs.core.MediaType" %>
 <%@ page import="org.codehaus.jackson.map.ObjectMapper" %>
 <%@ page import="org.codehaus.jackson.type.TypeReference" %>
@@ -50,7 +49,7 @@
             <ul class="navBar">
                 <li> <a class="userOption" href="home"> Welcome </a> </li>
                 <li> <a class="userOption" href="itemsList.jsp"> Home </a> </li>
-                <li> <a class="userOption" href="ShoppingCart"> Shopping Cart </a> </li>
+                <li> <a class="userOption" href="ShoppingCart"> Shopping model.Cart </a> </li>
             </ul>
         </div>
     </div>

@@ -1,3 +1,5 @@
+import model.Cart;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +45,12 @@ public class OrderDetails extends HttpServlet {
         int    shipZipCode = Integer.parseInt(request.getParameter("shipZipCode"));
         String deliveryType = request.getParameter("deliveryType");
 
+        String itemName = request.getParameter("itemName");
+        String itemSize = request.getParameter("itemSize");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        double unitPrice = Double.parseDouble(request.getParameter("unitPrice"));
+        double totalCost = Double.parseDouble(request.getParameter("total"));
+
         PrintWriter out = response.getWriter();
 
         //header
@@ -64,30 +72,30 @@ public class OrderDetails extends HttpServlet {
 
         //dynamically add here
         HttpSession session = request.getSession();
-        itemList = (ArrayList<Cart>) session.getAttribute("shoppingCart");
-        if(itemList == null) {
-            itemList = new ArrayList<Cart>();
-        }
-
-        if(itemList!=null || itemList.size() != 0) {
-            totalCost = 0;
-            for (int i =0 ; i < itemList.size(); ++i) {
-                Cart itemPick = itemList.get(i);
-                final String itemName = itemPick.getName();
-                final int itemQty = itemPick.getQty();
-                final String itemSize = itemPick.getSize();
-                final int total = (itemQty * 10);
-                itemList.get(i).setTotalCost(total);
-                totalCost += total;
+//        itemList = (ArrayList<Cart>) session.getAttribute("shoppingCart");
+//        if(itemList == null) {
+//            itemList = new ArrayList<Cart>();
+//        }
+//
+//        if(itemList!=null || itemList.size() != 0) {
+//            totalCost = 0;
+//            for (int i =0 ; i < itemList.size(); ++i) {
+//                Cart itemPick = itemList.get(i);
+//                final String itemName = itemPick.getName();
+//                final int itemQty = itemPick.getQty();
+//                final String itemSize = itemPick.getSize();
+//                final int total = (itemQty * 10);
+//                itemList.get(i).setTotalCost(total);
+//                totalCost += total;
                 out.println("<tr>");
-                out.println("<td><p> "+(i+1)+". "+itemName+"</p></td>");
+                out.println("<td><p> "+1+". "+itemName+"</p></td>");
                 out.println("</tr>");
                 out.println("<td><p>Size: "+itemSize+"</p> </td>");
-                out.println(" <td><p>Quantity: <input type=\"text\" name=\"quantity\" size=\"3\" value=\""+itemQty+"\" class=\"inputReadOnly\" readonly> </p></td>");
-                out.println("<td><p>Total Cost: $<input name=\"unitPrice\" value=\""+moneyFormat.format(total)+"\" class=\"inputReadOnly\" readonly> </input></p></td>");
+                out.println(" <td><p>Quantity: <input type=\"text\" name=\"quantity\" size=\"3\" value=\""+quantity+"\" class=\"inputReadOnly\" readonly> </p></td>");
+                out.println("<td><p>Total Cost: $<input name=\"unitPrice\" value=\""+moneyFormat.format(unitPrice)+"\" class=\"inputReadOnly\" readonly> </input></p></td>");
                 out.println("</tr>");
-            }
-        }
+//            }
+//        }
 
         itemList = new ArrayList<Cart>();
         session.setAttribute("shoppingCart", itemList);
