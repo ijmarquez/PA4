@@ -1,10 +1,12 @@
 PROJECT TITLE
-    PA4: Building a web application using JSP and RESTful web services
+PA4: Building a web application using JSP and RESTful web services
 
 
 GROUP MEMBERS
-    Calvin Poon
-    Irish Marquez
+
+Calvin Poon
+
+Irish Marquez
 
 
 URL
