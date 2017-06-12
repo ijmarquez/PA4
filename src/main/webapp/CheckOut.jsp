@@ -47,7 +47,7 @@
 
     <%--body--%>
     <div class="form">
-        <form method="POST" action="http://andromeda-74.ics.uci.edu:23456/jerseyrest/v1/api/todos" name="userInfo" onsubmit="checkForm()">
+        <form method="POST" action="http://andromeda-64.ics.uci.edu:5064/jerseyrest/v1/api/todos" name="userInfo" onsubmit="checkForm()">
             <div class="itemSelected">
                 <h1> Customer Information </h1>
                 <h2 class="formSep"> Order Summary </h2>
