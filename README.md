@@ -1,46 +1,65 @@
-Project Title 
-PA 3: Building a web application using Java Servlets
+PROJECT TITLE
+    PA4: Building a web application using JSP and RESTful web services
 
 
-Group Members: Marquez, Irish and Poon, Calvin
+GROUP MEMBERS
+    Calvin Poon
+    Irish Marquez
 
 
 URL
-http://andromeda-64.ics.uci.edu:5064/pa3/home
+    http://andromeda-74.ics.uci.edu:23456/pa3/home
 
 
-HOMEPAGE
-
-ItemsList servlet - handles displaying of the products obtained from the database. Uses RequestDispatcher “include” feature at the bottom of the code.
-
-PreviousItemsViewed servlet - uses session tracking to display products visited. It displays up to 5 items recently viewed by the user. Clicking on any item takes the user to Item page.
-
-
-
-PRODUCT DETAILS
-
-Item servlet – displays the item. Uses request.getParameter() command to get details about the item and queries the database to be able to display the item. Uses session to add item into the shopping cart. Choosing a size and color and clicking “Add to cart” button adds the item onto the shopping cart and then takes user to the Shopping cart page.
-
-ShoppingCart servlet – displays the item name, item size, item quantity, cost of each item, and total. Clicking Checkout button takes the user to the CheckOut (Customer Information) page.
+CLIENT FILES ARE IN:
+    pa3.war
+    PA4_Client
+    
+    
+REST FILES ARE IN:
+    jerseyrest.war
+    PA4_REST
 
 
-CHECK OUT
-
-CheckOut servlet contains:
-
-Items – shown on top of the page are all the products in the shopping cart.
-
-Form – has personal information, billing information, and shipping information where user can enter relevant user info such as name, address, phone number, etc.
-
-Total – located at the bottom of the page.
-
-Submit Order button – located at the bottom of the page. When the user clicks the button, user is taken to Order Complete page.
+JSP IMPLEMENTATION
+JSP is implemented on the product list page. 
+URL: http://andromeda-74.ics.uci.edu:23456/pa3/itemsList.jsp
+War file: pa3.war
+Folder: PA4 _Client
+File name: itemsList.jsp and MainItems.java
 
 
-StoreOrderInDB servlet – in the backend, user is taken from CheckOut to StoreOrderInDB to OrderDetails.
+REST SERVICES
+REST service application is written in Java using Jersey REST framework using JSON.
+Folder: PA4_REST
+File names: TodoService.java and TodoResource.java
 
-StoreOrderInDB servlet connects to the db.
+a. GET
+    Folder: PA4_REST
+    getTodoById() – used to get specific item in client’s Item.java 
+    getAllTodos() – used to get all items in client’s MainItems.java
+    Validation: Throws 404 error
+b. PUT
+    Folder: PA4_REST
+    updateTodo() – used to update the customer’s information
+    customerObject() – used to update the customer’s information
+    Validation: Throws 404 error
+c. POST
+    Folder: PA4_REST
+    addCustomer() – used to store customer info from client’s CheckOut.jsp
+d. DELETE
+    Folder: PA4_REST
+    File name: TodoService.Java
+    deleteTodo() – used to delete customer from database
+    Validation: Throws 404 error
 
-StoreOrderInDB servlet retrieves data from HttpServletRequest, passes them into db and forwards control (using RequestDispatcher “forward” feature) to OrderDetails servlet.
 
-OrderDetails servlet – displays order summary along with the user’s personal, billing, and shipping information. Clicking the Finish button takes the user back to Home. Doing so clears the items previously stored in the shopping cart, clearing the previous session.
+REST CALLS
+REST calls are found in the PA4_REST folder named “TODO RESTService calls.postman_collection.” 
+This includes the method type, request url, sample response, and sample request for each RESTful 
+service method implemented.
+
+
+
+
+

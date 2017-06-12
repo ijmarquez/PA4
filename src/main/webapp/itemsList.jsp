@@ -49,7 +49,7 @@
             <ul class="navBar">
                 <li> <a class="userOption" href="home"> Welcome </a> </li>
                 <li> <a class="userOption" href="itemsList.jsp"> Home </a> </li>
-                <li> <a class="userOption" href="ShoppingCart"> Shopping model.Cart </a> </li>
+                <%--<li> <a class="userOption" href="ShoppingCart"> Shopping model.Cart </a> </li>--%>
             </ul>
         </div>
     </div>
@@ -66,12 +66,12 @@
     </div>
 
 
-    <footer>
-        <div class="footer">
-            <a class="footerOption" href="about.php">about us</a>
-            <a class="footerOption" href="contact.php">contact us</a>
-        </div>
-    </footer>
+    <%--<footer>--%>
+        <%--<div class="footer">--%>
+            <%--<a class="footerOption" href="about.php">about us</a>--%>
+            <%--<a class="footerOption" href="contact.php">contact us</a>--%>
+        <%--</div>--%>
+    <%--</footer>--%>
 </div>
 </body>
 </html>
