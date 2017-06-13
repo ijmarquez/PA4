@@ -71,10 +71,10 @@ public class Constants {
 
     public static URI getBaseURI() {
         //Change the URL here to make the client point to your service.
-        return UriBuilder.fromUri("http://andromeda-64.ics.uci.edu:5064/jerseyrest").build();
+        return UriBuilder.fromUri("http://andromeda-74.ics.uci.edu:5074/jerseyrest").build();
     }
 
-    public static String getPOSTURL() { return "http://andromeda-64.ics.uci.edu:5064/jerseyrest/v1/api/todos";}
+    public static String getPOSTURL() { return "http://andromeda-74.ics.uci.edu:5074/jerseyrest/v1/api/todos";}
 }
 
 
